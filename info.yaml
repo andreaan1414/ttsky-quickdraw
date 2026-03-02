@@ -27,8 +27,6 @@ project:
     - "fa.v"
     - "mux2to1.v"
     - "hex7seg.v"
-    - "ringCounter.v"
-    - "selector.v"
     
     
     
