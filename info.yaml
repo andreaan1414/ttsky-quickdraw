@@ -3,9 +3,9 @@ project:
   title:        "Quick Draw"      # Project title
   author:       "Andrea Arreortua"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "Two player Quick Draw Game FSM. First player to get to 3 points wins. Uses an 8 bit LFSR for random delay and a 7 state FSM. Result shown on 7 segment display"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -18,39 +18,53 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "quickdraw.v"
-    -
+    - "quickdrawfsm.v"
+    - "lfsr.v"
+    - "timecounter.v"
+    - "counter4l.v"
+    - "addSub5.v"
+    - "add5.v"
+    - "fa.v"
+    - "mux2to1.v"
+    - "hex7seg.v"
+    - "ringCounter.v"
+    - "selector.v"
+    
+    
+    
+    
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
+  ui[0]: "Player A"
+  ui[1]: "Player B"
+  ui[2]: "GO signal switch"
+  ui[3]: "cheat switch"
   ui[4]: ""
   ui[5]: ""
   ui[6]: ""
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
+  uo[0]: "A"
+  uo[1]: "B"
+  uo[2]: "C"
+  uo[3]: "D"
+  uo[4]: "E"
+  uo[5]: "F"
+  uo[6]: "G"
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
+  uio[0]: "Green light for start countdown"
+  uio[1]: "Player A wins "
+  uio[2]: "Player B wins "
+  uio[3]: "Both win"
+  uio[4]: "both lose"
+  uio[5]: "player A wins full game"
+  uio[6]: "player B wins full game"
   uio[7]: ""
 
 # Do not change!
