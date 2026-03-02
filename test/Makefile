@@ -15,8 +15,7 @@ PROJECT_SOURCES = quickdraw.v \
                   add5.v \
                   fa.v \
                   mux2to1.v \
-                  hex7seg.v \
-                  selector.v
+                  hex7seg.v 
 
 ifneq ($(GATES),yes)
 # RTL simulation:
